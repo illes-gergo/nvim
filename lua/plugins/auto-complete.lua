@@ -1,7 +1,4 @@
 return {
-	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
 
 	{
 		"L3MON4D3/LuaSnip",
@@ -13,6 +10,11 @@ return {
 
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-omni",
+		},
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
@@ -43,6 +45,7 @@ return {
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
+					{ name = "omni" },
 				}, {
 					{ name = "buffer" },
 				}),
