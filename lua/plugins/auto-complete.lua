@@ -14,6 +14,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-omni",
+			"f3fora/cmp-spell",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -41,6 +42,15 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
+					{
+						name = "spell",
+						option = {
+							keep_all_entries = false,
+							enable_in_context = function()
+								return true
+							end,
+						},
+					},
 					-- { name = "vsnip" }, -- For vsnip users.
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.

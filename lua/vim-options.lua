@@ -7,4 +7,6 @@ vim.cmd("set linebreak")
 vim.cmd("set scrolloff=10")
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.spell = true
+vim.opt.spelllang = { 'en','hu' }
 vim.cmd("tnoremap <Esc> <C-\\><C-N>")
