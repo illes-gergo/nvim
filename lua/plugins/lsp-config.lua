@@ -10,7 +10,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "julials" },
+        ensure_installed = { "lua_ls", "julials", "clangd" },
       })
     end,
   },
@@ -24,18 +24,17 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       })
-      --			lspconfig.clangd.setup({
-      --			capabilities = capabilities,
-      --	})
       lspconfig.julials.setup({
         capabilities = capabilities,
       })
       lspconfig.clangd.setup({
-        capabilities = capabilities,
+        capabilities = {
+          offsetEncoding = "utf-16",
+        },
+        init_options = {
+          usePlaceholders = false,
+        },
       })
-      --[[lspconfig.ccls.setup({
-        capabilities = capabilities,
-      }) --]]
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
