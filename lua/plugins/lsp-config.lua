@@ -27,6 +27,9 @@ return {
       lspconfig.julials.setup({
         capabilities = capabilities,
       })
+      lspconfig.fortls.setup({
+        capabilities = capabilities,
+      })
       lspconfig.clangd.setup({
         capabilities = {
           offsetEncoding = "utf-16",
