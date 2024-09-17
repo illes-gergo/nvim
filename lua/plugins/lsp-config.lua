@@ -29,6 +29,15 @@ return {
       })
       lspconfig.fortls.setup({
         capabilities = capabilities,
+        cmd = {
+          'fortls',
+          '--lowercase_intrinsics',
+          '--hover_signature',
+          '--hover_language=fortran',
+          '--use_signature_help',
+          '--autocomplete_no_snippets',
+          '--autocomplete_name_only',
+        }
       })
       lspconfig.clangd.setup({
         capabilities = {
