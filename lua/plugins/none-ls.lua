@@ -9,6 +9,7 @@ return {
 				null_ls.builtins.formatting.clang_format,
 				require("none-ls.diagnostics.cpplint"),
 				require("none-ls.formatting.latexindent"),
+        null_ls.builtins.formatting.findent,
 				--null_ls.builtins.diagnostics.vale,
 			},
 			debug = true,
