@@ -37,6 +37,7 @@ return {
           '--use_signature_help',
           '--autocomplete_no_snippets',
           '--autocomplete_name_only',
+          '--enable_code_actions',
         }
       })
       lspconfig.clangd.setup({
