@@ -10,7 +10,16 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "julials", "clangd" },
+        ensure_installed = { "julials", "clangd", "clang-format", "findent" , "fortls" , "bashls" },
+
+--     bash-language-server bashls
+--     clang-format
+--     clangd
+--     cpplint
+--     findent
+--     fortls
+--     julia-lsp julials
+--     lua-language-server lua_ls
       })
     end,
   },
@@ -21,10 +30,10 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       capabilities.offsetEncoding = { "utf-16" }
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
+      lspconfig.julials.setup({
         capabilities = capabilities,
       })
-      lspconfig.julials.setup({
+      lspconfig.bashls.setup({
         capabilities = capabilities,
       })
       lspconfig.fortls.setup({
