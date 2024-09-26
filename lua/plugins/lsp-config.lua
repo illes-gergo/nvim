@@ -10,7 +10,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "julials", "clangd", "clang-format", "findent" , "fortls" , "bashls" },
+        ensure_installed = { "julials", "clangd", "fortls" , "bashls" },
 
 --     bash-language-server bashls
 --     clang-format
