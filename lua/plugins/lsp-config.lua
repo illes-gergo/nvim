@@ -28,7 +28,6 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      capabilities.offsetEncoding = { "utf-16" }
       local lspconfig = require("lspconfig")
       lspconfig.julials.setup({
         capabilities = capabilities,
@@ -55,6 +54,15 @@ return {
         },
         init_options = {
           usePlaceholders = false,
+        },
+        cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--fallback-style=llvm",
         },
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
