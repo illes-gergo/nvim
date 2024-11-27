@@ -26,6 +26,10 @@ return {
   -- NVim LSP-Config
   {
     "neovim/nvim-lspconfig",
+        keys = {
+          { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          { "<leader>si", "<cmd>ClangdShowSymbolInfo<cr>", desc = "Show symbol info (C/C++)" },
+        },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
@@ -64,10 +68,8 @@ return {
           "--header-insertion=iwyu",
           "--completion-style=detailed",
           "--function-arg-placeholders",
+          "--query-driver=g++",
           "--fallback-style=llvm",
-        },
-        keys = {
-          { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
         },
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(
