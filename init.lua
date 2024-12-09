@@ -15,3 +15,9 @@ local opts = {}
 
 require("vim-options")
 require("lazy").setup("plugins")
+
+vim.keymap.set("n","<C-S-Right>", ":wincmd l<CR>", {})
+vim.keymap.set("n","<C-S-Left>", ":wincmd h<CR>", {})
+vim.keymap.set("n","<C-S-Up>",":wincmd k<CR>", {})
+vim.keymap.set("n","<C-S-Down>",":wincmd j<CR>" , {})
+
