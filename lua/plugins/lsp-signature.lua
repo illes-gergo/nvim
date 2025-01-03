@@ -4,6 +4,6 @@ return {
   opts = {},
   config = function(_, opts)
     require("lsp_signature").setup(opts)
-    vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, {})
+    vim.keymap.set({ "n", "i" }, "<C-k>", function() vim.lsp.buf.signature_help() end, {})
   end,
 }
