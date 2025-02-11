@@ -10,7 +10,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "julials", "clangd", "fortls" , "bashls" },
+---        ensure_installed = { "julials", "clangd", "fortls" , "bashls" },
 
         --     bash-language-server bashls
         --     clang-format
@@ -33,9 +33,9 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      lspconfig.julials.setup({
-        capabilities = capabilities,
-      })
+--      lspconfig.julials.setup({
+--        capabilities = capabilities,
+--      })
       lspconfig.bashls.setup({
         capabilities = capabilities,
       })
