@@ -25,3 +25,22 @@ vim.keymap.set("n","<M-C-Right>", ":wincmd l<CR>", {})
 vim.keymap.set("n","<M-C-Left>", ":wincmd h<CR>", {})
 vim.keymap.set("n","<M-C-Up>",":wincmd k<CR>", {})
 vim.keymap.set("n","<M-C-Down>",":wincmd j<CR>" , {})
+
+function unload_treesitter()
+	local lazy_module = require('lazy')
+	print("Lazy module:", lazy_module) -- Add this line
+	if lazy_module then
+		print("Lazy module unload function:", lazy_module.unload) -- Add this line
+		if lazy_module.unload then
+			lazy_module.unload({ "nvim-treesitter" })
+			vim.notify("Treesitter unloaded.")
+		else
+			vim.notify("lazy.unload() is nil.")
+		end
+	else
+		vim.notify("Error: Lazy module is nil!")
+	end
+end
+
+-- Create a command
+vim.api.nvim_create_user_command('UnloadTreesitter', unload_treesitter, {})

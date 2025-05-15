@@ -7,24 +7,6 @@ return {
   },
   -- Mason LSP-Config
   {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
----        ensure_installed = { "julials", "clangd", "fortls" , "bashls" },
-
-        --     bash-language-server bashls
-        --     clang-format
-        --     clangd
-        --     cpplint
-        --     findent
-        --     fortls
-        --     julia-lsp julials
-        --     lua-language-server lua_ls
-      })
-    end,
-  },
-  -- NVim LSP-Config
-  {
     "neovim/nvim-lspconfig",
         keys = {
           { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -39,6 +21,9 @@ return {
       lspconfig.bashls.setup({
         capabilities = capabilities,
       })
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+      })
       lspconfig.fortls.setup({
         capabilities = capabilities,
         cmd = {
@@ -50,7 +35,7 @@ return {
           '--autocomplete_no_snippets',
           '--autocomplete_name_only',
           '--enable_code_actions',
-        }
+        },
       })
       lspconfig.clangd.setup({
         capabilities = {
