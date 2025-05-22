@@ -11,7 +11,9 @@ return {
         keys = {
           { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
           { "<leader>si", "<cmd>ClangdShowSymbolInfo<cr>", desc = "Show symbol info (C/C++)" },
+          { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename symbol" },
         },
+    lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
