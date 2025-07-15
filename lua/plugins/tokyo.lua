@@ -1,4 +1,8 @@
 return {
+  {
+    "xiyaowong/transparent.nvim"
+  },
+  {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
@@ -41,4 +45,5 @@ return {
     })
     vim.cmd([[colorscheme tokyonight]])
   end,
+  }
 }
