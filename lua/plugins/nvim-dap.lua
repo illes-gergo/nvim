@@ -6,6 +6,8 @@ return {
   },
   config = function()
     local dap, dapui = require("dap"), require("dapui")
+    local lastExec = ""
+    local lastArg = ""
 
     --dap.listeners.before.attach.dapui_config = function()
     --  dapui.open()
@@ -45,9 +47,17 @@ return {
         type = "gdb",
         request = "launch",
         program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+          if lastExec == "" then
+            lastExec = vim.fn.input('Executable name: ', '' ,'file')
+          end
+          return vim.fn.input('Path to executable ok?: ', vim.fn.getcwd() .. '/' .. lastExec, 'file')
         end,
-        args = function() return vim.split(vim.fn.input('Arguments: '), " +") end,
+        args = function()
+          if lastArg == "" then
+            lastArg = vim.fn.input('Arguments: ')
+          end
+          return vim.split(vim.fn.input('Arguments ok?: ', lastArg), " +")
+        end,
         cwd = "${workspaceFolder}",
         stopAtBeginningOfMainSubprogram = false,
       },
