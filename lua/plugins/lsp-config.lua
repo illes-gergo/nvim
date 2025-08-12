@@ -17,9 +17,9 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
---      lspconfig.julials.setup({
---        capabilities = capabilities,
---      })
+      lspconfig.julials.setup({
+        capabilities = capabilities,
+      })
       lspconfig.bashls.setup({
         capabilities = capabilities,
       })
