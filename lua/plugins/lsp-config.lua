@@ -54,7 +54,7 @@ return {
           "--clang-tidy",
           "--header-insertion=iwyu",
           "--completion-style=detailed",
-          "--function-arg-placeholders",
+          "--function-arg-placeholders=0",
           "--query-driver=g++",
           "--fallback-style=llvm",
         },
